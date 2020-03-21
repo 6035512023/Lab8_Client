@@ -11,3 +11,4 @@ if ( firebase.apps.length === 0)
     firebase.initializeApp(config)
 export const firestore = firebase.firestore()
 ReactDOM.render(<App />, document.getElementById('root'));
+serviceWorker.unregister();
