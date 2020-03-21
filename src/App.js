@@ -1,5 +1,6 @@
 import React, { useState,useEffect } from 'react';
 import './App.css';
+import {firestore} from './index'
 
 
 function App() {
@@ -15,8 +16,14 @@ function App() {
 
   useEffect( () => {
 
-  })
+    retriveData()
+  },[])
 
+const retriveData = () => {
+  firestore.collection("tasks").onSnapshot( (snapshot) => {
+    console.log(snapshot)
+  } )
+}
   const renderTask = () => {
    
     if (tasks && tasks.length)
